@@ -6,7 +6,6 @@
   "version": "0.0.1",
 
   "browser_action": {
-    "default_popup": "index.html",
     "default_title": "Open the extension"
   },
   "icons": {
@@ -14,6 +13,17 @@
     "48": "logo192.png",
     "128": "logo192.png"
   },
-  "content_security_policy": "script-src 'self' 'sha256-4Y50y24/m36lIDtPtY8l9i1rmfZ1BT/waxeoXKA2OEs='; object-src 'self'",  "permissions": [
+  "background": {
+    "persistent": false,
+    "scripts": ["bg.js"]
+  },
+  "content_security_policy": "script-src 'self' 'sha256-4Y50y24/m36lIDtPtY8l9i1rmfZ1BT/waxeoXKA2OEs='; object-src 'self'", 
+  "permissions": ["tabs",   "notifications","http://*/*", "https://*/*", "<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content/content.css"],
+      "js": ["content/index.js"]
+    }
   ]
 }

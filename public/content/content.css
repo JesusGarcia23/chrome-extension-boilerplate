@@ -1,0 +1,24 @@
+#mydiv {
+    position: absolute;
+    top: 0;
+    left: 70vw;
+    z-index: 2147483637;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    color: red !important; 
+    height: 200px;
+    width: 200px;
+  }
+  
+  #mydivheader {
+    padding: 10px;
+    cursor: move;
+    z-index: 2147483638;
+    background-color: #2196F3;
+    color: #fff;
+  }
+
+  #mydivbody {
+      height: 200px;
+  }
