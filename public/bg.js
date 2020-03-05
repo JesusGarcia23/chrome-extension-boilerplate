@@ -11,13 +11,18 @@ function set_status() {
 }
 
 function toggle_extension(tab){
+    let myDiv = document.getElementById("mydiv")
+    console.log(myDiv)
     // Set icon
     chrome.browserAction.setIcon({ path: 'icons/icon-'+status+'.png', tabId:tab.id });
     // Pass variable & execute script
     chrome.tabs.executeScript({ code: 'var extension_status = "'+status+'"' });
-    chrome.tabs.executeScript({ file: 'content/content.js' });
-    // Set the tab id
-    the_tab_id = tab.id;
+    if(!document.getElementById("mydiv")){
+        chrome.tabs.executeScript({ file: 'content/content.js' });
+            // Set the tab id
+         the_tab_id = tab.id;
+    }
+
 }
 
 

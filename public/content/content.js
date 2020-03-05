@@ -3,15 +3,32 @@ console.log("MY EXTENSION CONSOLE LOG! CONTENT");
 
 var divHeader = document.createElement("div")
 divHeader.setAttribute("id", "mydivheader");
-var div=document.createElement("div"); 
+var div = document.createElement("div"); 
 div.setAttribute("id", "mydiv");
-document.body.appendChild(div); 
+
+
+var exitBtn = document.createElement("BUTTON");
+var exitBtnText = document.createTextNode("X")
+exitBtn.appendChild(exitBtnText);
+exitBtn.setAttribute("id", "exitBtn");
+exitBtn.addEventListener("click", closeDiv)
+
+
+
 
 var divBody = document.createElement("div");
 divBody.setAttribute("id", "mydivbody");
 
-div.append(divHeader);
-div.append(divBody);
+
+if(document.getElementById("mydiv") === null) {
+  let theDiv = document.getElementById("mydiv");
+  console.log(theDiv);
+  document.body.appendChild(div); 
+  div.append(divHeader);
+  div.append(divBody);
+  
+  divHeader.appendChild(exitBtn)
+}
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -54,5 +71,10 @@ function dragElement(elmnt) {
   }
 }
 
+function closeDiv(element){
+  if(element) {
+    document.body.removeChild(div);
+  }
+}
 
 dragElement(document.getElementById("mydiv"));
